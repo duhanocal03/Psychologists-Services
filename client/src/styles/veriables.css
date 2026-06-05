@@ -1,0 +1,20 @@
+:root{
+ /*UI Kit Colors*/
+ --color-dark:#191A15;
+ --color-white:#fff;
+
+ /* Button Hover Color */
+ --color-light-green:#54BE96;
+
+ /* Icon Color  %20 */
+ --color-alpha-green:#54BE9633;
+
+ /* Button Color */
+--color-dark-green:#36A379;
+
+/* Rating Star */
+--color-yellow-star:#FFC531;
+
+/* Fonts */
+    --font-family: 'Inter', sans-serif;
+}
