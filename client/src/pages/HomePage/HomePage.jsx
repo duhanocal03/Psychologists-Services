@@ -1,9 +1,9 @@
-import Navbar from "../../components/layout/navbar/navbar";
+import HeroSection from "../../components/home/HeroSection/HeroSeciton";
 
 const HomePage = () => {
     return (
         <main>
-            <Navbar/>
+           <HeroSection />
         </main>
     )
 }
