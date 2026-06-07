@@ -15,6 +15,9 @@
 /* Rating Star */
 --color-yellow-star:#FFC531;
 
+/* Border Color */
+--color-border: rgba(25, 26, 21, 0.1);
+
 /* Fonts */
     --font-family: 'Inter', sans-serif;
 }
