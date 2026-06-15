@@ -111,7 +111,7 @@ const PsychologistsPage = () => {
   return (
     <div className={styles.pageContainer}>
       
-      {/* FİGMA TASARIMINA UYGUN ÖZEL DROPDOWN SEÇİCİ */}
+      {/* DROPDOWN SEÇİCİ */}
       <div className={styles.filterWrapper}>
         <label className={styles.filterLabel}>Filters</label>
         <div className={styles.dropdownContainer}>

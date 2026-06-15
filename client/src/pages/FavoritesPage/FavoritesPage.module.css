@@ -1,0 +1,79 @@
+.pageContainer {
+    background-color: #fbfbfb;
+    min-height: 100vh;
+    padding: 40px 24px;
+    font-family: sans-serif;
+}
+
+/* 🌟 Boş Favoriler Sayfası Tasarımı */
+.emptyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.emptyTitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #191A15;
+    margin-bottom: 12px;
+}
+
+.emptyText {
+    font-size: 16px;
+    color: rgba(25, 26, 21, 0.5);
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Liste ve Buton Düzenleri */
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1184px;
+    margin: 0 auto 32px auto;
+}
+
+.loadingText {
+    text-align: center;
+    color: #191A15;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.loadMoreBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 14px 40px;
+    background-color: #54be96;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.loadMoreBtn:hover {
+    background-color: #43a881;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

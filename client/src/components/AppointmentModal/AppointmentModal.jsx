@@ -11,7 +11,7 @@ const AppointmentModal = ({ isOpen, onClose, doctorName, doctorAvatar }) => {
   });
   const [showTimePicker, setShowTimePicker] = useState(false);
 
-  // 🎹 ESC Tuşu ile Kapatma Fonksiyonu
+  //  ESC Tuşu ile Kapatma Fonksiyonu
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -47,7 +47,7 @@ const AppointmentModal = ({ isOpen, onClose, doctorName, doctorAvatar }) => {
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        {/* Kapatma Butonu (X) */}
+        {/* Kapatma Butonu*/}
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
           ✕
         </button>
