@@ -1,0 +1,241 @@
+.card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    max-width: 1184px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.avatarContainer {
+    flex-shrink: 0;
+}
+
+.avatarWrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(84, 190, 150, 0.2);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 8px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.onlineStatus {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #38c172;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+.contentContainer {
+    flex: 1;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.profession {
+    font-size: 16px;
+    color: #8a8a89;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #191A15;
+    margin: 0;
+}
+
+.metaInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #191A15;
+    margin-top: 4px;
+}
+
+.divider {
+    color: rgba(25, 26, 21, 0.2);
+}
+
+.price {
+    color: #38c172;
+    font-weight: 600;
+}
+
+.favoriteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tag {
+    background-color: #f3f3f3;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 16px;
+    color: #8a8a89;
+}
+
+.tagValue {
+    color: #191A15;
+    font-weight: 500;
+}
+
+.aboutText {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(25, 26, 21, 0.6);
+    margin: 0 0 16px 0;
+}
+
+.readMoreBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: #191A15;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Açılan Detay Düzeni */
+.expandedContent {
+    margin-top: 32px;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reviewHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviewerAvatar {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(84, 190, 150, 0.2);
+    color: #54be96;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewerMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reviewerName {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #191A15;
+}
+
+.reviewerRating {
+    font-size: 14px;
+    font-weight: 500;
+    color: #191A15;
+}
+
+.reviewComment {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: rgba(25, 26, 21, 0.6);
+    padding-left: 0;
+}
+
+/* Oval Randevu Butonu */
+.appointmentBtn {
+    background-color: #54be96;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.appointmentBtn:hover {
+    background-color: #43a881;
+}
+
+/* Mobil Uyumlar */
+@media (max-width: 900px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .metaInfo {
+        justify-content: center;
+    }
+
+    .tagsContainer {
+        justify-content: center;
+    }
+}
