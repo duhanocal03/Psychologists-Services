@@ -90,12 +90,12 @@ const FavoritesPage = () => {
   return (
     <div className={styles.pageContainer}>
       
-      {/* 🌟 ŞARTNAME KONTROLÜ: Favoriler Boşsa Gösterilecek Alan */}
+      {/* Favoriler Boşsa Gösterilecek Alan */}
       {!loading && favoritePsychologists.length === 0 ? (
         <div className={styles.emptyContainer}>
           <h2 className={styles.emptyTitle}>You don't have any favorites yet</h2>
           <p className={styles.emptyText}>
-            Go back to the psychologists page and add some specialists to your list to see them here!
+            Go back to the psychologist page and add some specialists to your list to see them here!
           </p>
         </div>
       ) : (
