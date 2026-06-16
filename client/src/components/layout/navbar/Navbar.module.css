@@ -1,9 +1,14 @@
+/* ==========================================
+   🧱 TEMEL NAVBAR & CONTAINER YAPISI
+   ========================================== */
 .navbar {
     width: 100%;
     height: 96px;
     border-bottom: 1px solid var(--color-border);
     display: flex;
     align-items: center;
+    background-color: #ffffff;
+    position: relative;
 }
 
 .container {
@@ -13,6 +18,26 @@
     padding: 0 8px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+/* ==========================================
+   🎨 LOGO VE MASAÜSTÜ NAVİGASYON
+   ========================================== */
+.logo {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    white-space: nowrap;
+}
+
+.logo span:first-child {
+    color: var(--color-light-green);
+}
+
+.logo span:last-child {
+    color: var(--color-dark);
 }
 
 .menuLinks {
@@ -32,7 +57,6 @@
     font-weight: 500;
 }
 
-/* Aktif link altındaki o yeşil nokta */
 .link.active::after {
     content: "";
     position: absolute;
@@ -45,32 +69,58 @@
     border-radius: 50%;
 }
 
+/* ==========================================
+   🔑 MASAÜSTÜ BUTONLAR VE KULLANICI PROFİLİ
+   ========================================== */
 .authButtons {
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: 18px;
-    margin-right: -120px;
 }
 
-/* LOGO STİLLERİ */
-.logo {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
+.loginBtn {
+    background: none;
+    border: 1px solid rgba(25, 26, 21, 0.2);
+    padding: 14px 39px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
     font-family: var(--font-family);
-    margin-right: 70px;
-}
-
-.logo span:first-child {
-    color: var(--color-light-green);
-}
-
-.logo span:last-child {
     color: var(--color-dark);
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-/* 🌟 KULLANICI GİRİŞ YAPTIĞINDA GELECEK EK STİLLER (Tasarımı Bozmaz) */
+.registerBtn {
+    background-color: var(--color-light-green);
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.logoutBtn {
+    background: none;
+    border: 1px solid rgba(25, 26, 21, 0.2);
+    padding: 14px 39px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-dark);
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
 .userProfile {
     display: flex;
     align-items: center;
@@ -85,31 +135,185 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
+/* 🌟 MASAÜSTÜNDE İSMİN GÖRÜNMESİNİ SAĞLAYAN ANA KURAL */
 .userName {
+    display: block;
     font-size: 16px;
     font-weight: 500;
     color: var(--color-dark);
     font-family: var(--font-family);
+    white-space: nowrap;
 }
 
-/* Log out Butonunun Orijinal Figma Tasarımı */
-.logoutBtn {
-    background: none;
-    border: 2px solid rgba(25, 26, 21, 0.2);
-    padding: 14px 39px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-dark);
-    font-family: var(--font-family);
+/* ==========================================
+   🍔 HAMBURGER BUTON AYARLARI
+   ========================================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    background: transparent;
+    border: none;
     cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: #191A15;
     transition: all 0.3s ease;
 }
 
-.logoutBtn:hover {
-    border: 1px solid rgba(25, 26, 21, 0.2) ;
-    color: var(--color-light-green);
-    background-color: rgba(231, 76, 60, 0.05);
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobileAuthGroup {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   💻 LAPTOP & TABLET KIRILMA NOKTASI (1024px)
+   ========================================== */
+@media (max-width: 1024px) {
+    .menuLinks {
+        margin-left: 40px;
+        gap: 20px;
+    }
+}
+
+/* ==========================================
+   📱 MOBİL KIRILMA NOKTASI (768px)
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        height: 72px;
+    }
+
+    .container {
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        font-size: 18px;
+        margin-right: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+        margin-left: auto;
+        /* Hamburger en sağ köşeye yaslanır */
+    }
+
+    /* 🌟 768px ALTINDA DA İSMİN KALMASINI VE SIKIŞMAMASINI SAĞLAYAN YERLEŞİM */
+    .authButtons {
+        display: flex;
+        gap: 12px;
+        margin-left: 0;
+        margin-right: auto;
+        /* Kendinden sonraki hamburgeri sağa iteler */
+        align-items: center;
+    }
+
+    .userProfile {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .userName {
+        display: inline-block !important;
+        /* Görünürlüğü burada da garanti altına alıyoruz */
+        font-size: 14px;
+        /* Mobilde taşmasın diye yazı boyutunu biraz küçülttük */
+        max-width: 90px;
+        /* Çok uzun isimlerde düzenin kırılmasını önler */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .userIconWrapper {
+        width: 32px;
+        height: 32px;
+    }
+
+    .loginBtn,
+    .registerBtn,
+    .logoutBtn {
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 20px;
+    }
+
+    /* Mobil açılır dikey menü yapısı */
+    .menuLinks {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 30px 0;
+        margin-left: 0;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .menuLinks.menuOpen {
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   🌟 ULTRA MINI EKRANLAR (480px - 320px)
+   ========================================== */
+@media (max-width: 480px) {
+    .authButtons {
+        display: none;
+        /* Telefon modunda artık üstte isim ve logout kalmaz, her şey temizlik adına hamburgerin içine girer */
+    }
+
+    .mobileAuthGroup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .mobileAuthGroup button {
+        width: 80%;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 16px;
+        margin-right: 0;
+    }
 }

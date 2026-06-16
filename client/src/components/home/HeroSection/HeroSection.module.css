@@ -1,7 +1,12 @@
+/* ==========================================
+    MASAÜSTÜ TEMEL YAPI
+   ========================================== */
 .hero {
     width: 100%;
     padding: 60px 0;
     background-color: transparent;
+    overflow: hidden;
+    /* Ekrandan dışarı taşmaları önler */
 }
 
 .container {
@@ -17,7 +22,6 @@
 .content {
     flex: 1;
     max-width: 550px;
-    /* Metinlerin çok fazla sağa uzayıp yayılmaması için sınır */
 }
 
 .title {
@@ -28,56 +32,46 @@
     line-height: 1.2;
     color: var(--color-dark);
     margin-bottom: 24px;
+}
+
+.spanHero {
+    color: var(--color-dark-green);
+    font-size: 80px;
+    font-style: italic;
     font-family: var(--font-family);
+    display: inline-block;
 }
 
 .description {
     font-family: var(--font-family);
     font-size: 18px;
-    font-weight: 500px;
+    font-weight: 500;
     color: rgba(25, 26, 21, 1);
     line-height: 1.5;
     margin-bottom: 40px;
 }
 
 .imageWrapper {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    width: 500px;
-    height: 500px;
-    background-repeat: no-repeat;
-}
-
-.heroImg {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.spanHero{
-    color: var(--color-dark-green);
-    font-size: 80px;
-    font-style: italic;
-    font-family: var(--font-family);
-}
-
-.imageWrapper {
     position: relative;
     display: inline-block;
+    flex: 1;
+    max-width: 500px;
+    height: auto;
 }
 
 .heroImg {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 .heroBlock {
     position: absolute;
     bottom: 35px;
-    left: -35px;
+    left: -40px;
     z-index: 2;
 }
 
@@ -97,7 +91,7 @@
     position: absolute;
     top: 15%;
     z-index: 2;
-    right: 40px;
+    right: 15px;
     width: 40px;
     height: 40px;
     background-color: rgba(251, 199, 94, 1);
@@ -105,8 +99,111 @@
     transform: rotate(15deg);
 }
 
-.heroQuestion path ,
-.heroQuestion svg *{
+.heroQuestion path,
+.heroQuestion svg * {
     transform-origin: center;
-        transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+/* ==========================================
+    LAPTOP & TABLET AYARLARI (1024px)
+   ========================================== */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 52px;
+        /* Ekran daraldıkça yazı boyutu kademeli düşüyor */
+    }
+
+    .spanHero {
+        font-size: 58px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================
+    MOBİL AYARLARI (768px ve Altı)
+   ========================================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 0;
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 48px;
+        padding: 0 20px;
+    }
+
+    .content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 36px;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+    }
+
+    .spanHero {
+        font-size: 42px;
+    }
+
+    .description {
+        font-size: 14px;
+        margin-bottom: 28px;
+        max-width: 450px;
+    }
+
+    .imageWrapper {
+        width: 100%;
+        max-width: 343px;
+        margin: 0 auto;
+    }
+
+    .heroImg {
+        width: 100%;
+        height: auto;
+    }
+
+        .heroBlock {
+            width: 75%;
+            left: 75px !important;
+            bottom: 35px !important;
+            transform: scale(0.9);
+        }
+
+    .heroQuestion {
+        display: none;
+    }
+
+    .heroUsers{
+    display: none;
+    }
+}
+
+/* ==========================================
+    KÜÇÜK MOBİL (480px - 320px)
+   ========================================== */
+@media (max-width: 480px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .spanHero {
+        font-size: 36px;
+    }
+
+    
+    .heroBlock {
+        left: 50%;
+        transform: translateX(-50%) scale(0.85);
+        bottom: -20px;
+    }
 }

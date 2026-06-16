@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom'; // 🌟 useLocation eklendi
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../../firebase/config';
 import LoginModal from '../../Modals/LoginModal/LoginModal';
@@ -10,8 +10,9 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  const location = useLocation(); // 🌟 Aktif sayfa yolunu almak için
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -19,6 +20,13 @@ const Navbar = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    const handlePageChange = setTimeout(() => {
+      setIsMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(handlePageChange);
+  }, [location]);
 
   const handleLogout = async () => {
     try {
@@ -36,8 +44,8 @@ const Navbar = () => {
           <span>psychologists.</span><span>services</span>
         </Link>
 
-        {/* ORTA MENÜ */}
-        <div className={styles.menuLinks}>
+        {/* 📱 MOBİL AÇILIR MENÜ (Navigasyon + Giriş Butonları İç İçe) */}
+        <div className={`${styles.menuLinks} ${isMenuOpen ? styles.menuOpen : ''}`}>
           <NavLink 
             to="/" 
             className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
@@ -51,7 +59,6 @@ const Navbar = () => {
             Psychologists
           </NavLink>
           
-          {/* 🌟 1. SORUNUN ÇÖZÜMÜ: Sadece "/psychologists" veya "/favorites" sayfasındayken gösterilir */}
           {(location.pathname === '/psychologists' || location.pathname === '/favorites') && (
             <NavLink 
               to="/favorites" 
@@ -60,36 +67,63 @@ const Navbar = () => {
               Favorites
             </NavLink>
           )}
+
+          {/* 🌟 480px altında menünün içine dahil olan alternatif butonlar */}
+          <div className={styles.mobileAuthGroup}>
+            {user ? (
+              <button className={styles.logoutBtn} onClick={handleLogout}>
+                Log out
+              </button>
+            ) : (
+              <>
+                <button className={styles.loginBtn} onClick={() => { setIsLoginOpen(true); setIsMenuOpen(false); }}>
+                  Log In
+                </button>
+                <button className={styles.registerBtn} onClick={() => { setIsRegisterOpen(true); setIsMenuOpen(false); }}>
+                  Registration
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
-        {/* SAĞ BUTONLAR / PROFİL ALANI */}
+        {/* 💻 MASAÜSTÜ / NORMAL MOBİL SAĞ ALAN (Büyük ekranlarda görünür, çok küçükte gizlenir) */}
         <div className={styles.authButtons}>
           {user ? (
             <div className={styles.userProfile}>
               <div className={styles.userIconWrapper}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </div>
               <span className={styles.userName}>{user.displayName || 'User'}</span>
-              
-              {/* 🌟 2. SORUNUN ÇÖZÜMÜ: Görseldeki gibi oval ve şık Log out butonu */}
               <button className={styles.logoutBtn} onClick={handleLogout}>
                 Log out
               </button>
             </div>
           ) : (
             <>
-              <button style={{ background: 'none', border: '1px solid rgba(25,26,21,0.2)', padding: '14px 39px', borderRadius: '30px', cursor: 'pointer', fontWeight: 500, fontFamily: 'var(--font-family)' }} onClick={() => setIsLoginOpen(true)}>
+              <button className={styles.loginBtn} onClick={() => setIsLoginOpen(true)}>
                 Log In
               </button>
-              <button style={{ backgroundColor: 'var(--color-light-green)', border: 'none', padding: '14px 40px', borderRadius: '30px', color: '#fff', cursor: 'pointer', fontWeight: 500, fontFamily: 'var(--font-family)' }} onClick={() => setIsRegisterOpen(true)}>
+              <button className={styles.registerBtn} onClick={() => setIsRegisterOpen(true)}>
                 Registration
               </button>
             </>
           )}
         </div>
+
+        {/* HAMBURGER BUTONU */}
+        <button 
+          className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
       {/* MODALLAR */}

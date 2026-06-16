@@ -50,7 +50,6 @@
     margin: 0 0 40px 0;
 }
 
-/* Doktor Bilgisi Kartı */
 .doctorInfoContainer {
     display: flex;
     align-items: center;
@@ -179,7 +178,7 @@
     font-weight: 500;
 }
 
-/* Gönder Butonu */
+
 .submitBtn {
     background-color: #54be96;
     color: #ffffff;
