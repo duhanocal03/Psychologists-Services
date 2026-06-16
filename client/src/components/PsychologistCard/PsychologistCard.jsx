@@ -70,7 +70,7 @@ const PsychologistCard = ({ doctor, onFavoriteToggle }) => {
           </div>
           
           <div className={styles.metaInfo}>
-            <span className={styles.rating}><img src="../../../public/star.svg" alt="Star Icon" /> Rating: {doctor.rating}</span>
+            <span className={styles.rating}><img src="/star.svg" alt="Star Icon" /> Rating: {doctor.rating}</span>
             <span className={styles.divider}>|</span>
             <span className={styles.priceInfo}>
               Price / 1 hour: <span className={styles.price}>{doctor.price_per_hour}$</span>
@@ -126,7 +126,7 @@ const PsychologistCard = ({ doctor, onFavoriteToggle }) => {
                       </div>
                       <div className={styles.reviewerMeta}>
                         <h4 className={styles.reviewerName}>{currentReviewerName}</h4>
-                        <span className={styles.reviewerRating}><img src="../../../public/star.svg" alt="Star Icon" /> {currentReviewerRating}</span>
+                        <span className={styles.reviewerRating}><img src="/star.svg" alt="Star Icon" /> {currentReviewerRating}</span>
                       </div>
                     </div>
                     <p className={styles.reviewComment}>{review.comment}</p>
